@@ -1,1 +1,1 @@
-# Html_Project
+# Javascript_Project
