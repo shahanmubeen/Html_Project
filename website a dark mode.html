@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dark Mode Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        :root {
+            --primary-color: #000106;
+            --secondary-color: #fff;
+        }
+
+        .light-theme {
+            --primary-color: #edf2fc;
+            --secondary-color: #212121;
+        }
+
+        body {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            width: 100%;
+        }
+
+        nav {
+            width: 84%;
+            margin: auto;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 100px;
+        }
+
+        nav ul {
+            flex: 1;
+            text-align: right;
+        }
+
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+        }
+
+        nav ul li a:hover {
+            color: #ff4321;
+        }
+
+        #icon {
+            width: 30px;
+            cursor: pointer;
+        }
+
+        .info {
+            margin-left: 8%;
+            margin-top: 15%;
+        }
+
+        .info h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .info span {
+            color: #ff4321;
+        }
+
+        .info p {
+            line-height: 22px;
+        }
+
+        .info a {
+            background: var(--secondary-color);
+            padding: 10px 18px;
+            text-decoration: none;
+            color: var(--primary-color);
+            display: inline-block;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="hero">
+    <nav>
+        <img src="https://via.placeholder.com/100" class="logo">
+
+        <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="">ABOUT</a></li>
+            <li><a href="">PORTFOLIO</a></li>
+            <li><a href="">SERVICES</a></li>
+            <li><a href="">HIRE ME</a></li>
+        </ul>
+
+        <!-- Dark Mode Icon -->
+        <img src="C:\Users\-\Desktop\OIP.jpeg" id="icon">
+    </nav>
+
+    <div class="info">
+        <h1>I'm <span>Kate</span></h1>
+        <p>This is my official portfolio website to showcase my all works related to web<br>development and UI Design</p>
+        <a href="">Download</a>
+    </div>
+</div>
+
+<script>
+    var icon = document.getElementById("icon");
+
+    icon.onclick = function () {
+        document.body.classList.toggle("light-theme");
+
+        // Change icon image
+        if (document.body.classList.contains("light-theme")) {
+            icon.src = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png";
+        } else {
+            icon.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
+        }
+    }
+</script>
+
+</body>
+</html>

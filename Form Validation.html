@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Form Validation</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px #ccc;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+}
+.error {
+    color: red;
+    font-size: 14px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="form-box">
+    <h2>Register</h2>
+
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Enter Name">
+        <div id="nameError" class="error"></div>
+
+        <input type="email" id="email" placeholder="Enter Email">
+        <div id="emailError" class="error"></div>
+
+        <input type="password" id="password" placeholder="Enter Password">
+        <div id="passError" class="error"></div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    let valid = true;
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("passError").innerHTML = "";
+
+   
+    if (name === "") {
+        document.getElementById("nameError").innerHTML = "Name is required";
+        valid = false;
+    }
+
+    if (email === "") {
+        document.getElementById("emailError").innerHTML = "Email is required";
+        valid = false;
+    } else if (!email.includes("@")) {
+        document.getElementById("emailError").innerHTML = "Invalid email";
+        valid = false;
+    }
+
+    if (password === "") {
+        document.getElementById("passError").innerHTML = "Password is required";
+        valid = false;
+    } else if (password.length < 6) {
+        document.getElementById("passError").innerHTML = "Min 6 characters";
+        valid = false;
+    }
+
+ 
+    if (valid) {
+        alert("Form Submitted Successfully");
+    }
+});
+</script>
+
+</body>
+</html>
